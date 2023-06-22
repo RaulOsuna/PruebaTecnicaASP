@@ -1,0 +1,23 @@
+<ul class="navbar-nav" *ngIf="isAuthenticated | async">
+  <li class="nav-item">
+    <a class="nav-link text-dark" [routerLink]='["/authentication/profile"]' title="Manage">{{ userName | async }}</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-dark" [routerLink]='["/articulos"]' title="Manage">Articulos y tienda</a>
+  </li>
+  
+  <li class="nav-item">
+    <a class="nav-link text-dark" [routerLink]='["/carrito"]' title="Manage">Carrito</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-dark" [routerLink]='["/authentication/logout"]' [state]='{ local: true }' title="Logout">Logout</a>
+  </li>
+</ul>
+<ul class="navbar-nav" *ngIf="(isAuthenticated | async) !== true">
+  <li class="nav-item">
+        <a class="nav-link text-dark" [routerLink]='["/authentication/register"]'>Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" [routerLink]='["/authentication/login"]'>Login</a>
+    </li>
+</ul>

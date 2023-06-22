@@ -1,0 +1,36 @@
+<form>
+  <!--<input type="text" id="Codigo" name="Codigo" #Codigo placeholder="Codigo" />-->
+  <mat-form-field class="example-form-field" style="width:fit-content">
+    <mat-label>CODIGO DEL PRODUCTO</mat-label>
+    <input matInput type="text" id="Codigo" name="Codigo" #Codigo placeholder="Codigo" value="{{articuloEditar.codigo}}">
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-form-field" style="width:fit-content">
+    <mat-label>DESCRIPCION</mat-label>
+    <input matInput type="text" class="form-control" id="Descripcion" #Descripcion name="Descripcion" placeholder="Descripcion" value="{{articuloEditar.descripcion}}">
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-form-field" style="width:fit-content">
+    <mat-label>PRECIO</mat-label>
+    <input matInput type="number" class="form-control" id="Precio" #Precio name="Precio" placeholder="Precio" value="{{articuloEditar.precio}}">
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-form-field" style="width:fit-content">
+    <mat-label>STOCK</mat-label>
+    <input matInput type="number" class="form-control" id="Stock" #Stock name="Stock" placeholder="Stock" value="{{articuloEditar.stock}}">
+  </mat-form-field>
+  <br />
+
+
+  <mat-form-field>
+    <mat-label>SUCURSAL</mat-label>
+    <mat-select value="tiendaEditar.id">
+      <mat-option value="tiendaEditar.id">{{tiendaEditar.sucursal}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <br />
+  <button mat-raised-button style="background-color:green;color:white" (click)="Editar(Codigo.value,Descripcion.value, Precio.value, Stock.value)">Editar</button>
+
+</form>

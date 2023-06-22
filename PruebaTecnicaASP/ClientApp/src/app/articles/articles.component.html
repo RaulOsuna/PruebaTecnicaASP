@@ -1,0 +1,22 @@
+<div>
+  <button mat-button color="primary" (click)="goToPage('/articulos/nuevoArticulo');">+ AGREGAR NUEVO ARTICULO</button>
+  <button mat-button color="primary" (click)="goToPage('/nuevaTienda');">+ AGREGAR NUEVA TIENDA</button>
+</div>
+<div class="row">
+  <div class="col-lg-4" *ngFor="let articulo of articulosDisponibles">
+    <div class="card" style="width: 18rem;" >
+      <img class="card-img-top" src="../../assets/images/{{articulo.id}}.png" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">[{{articulo.codigo}}]{{articulo.descripcion}}</h5>
+        <mat-form-field class="example-form-field">
+          <mat-label>Cantidad</mat-label>
+          <input matInput id="Cantidad{{articulo.id}}" type="number" max="{{articulo.stock}}" min="1" value="1">
+        </mat-form-field>
+        <!--<input id="Cantidad{{articulo.id}}" type="number" max="{{articulo.stock+1}}" min="1" value="1" />-->
+        <p>Stock maximo: {{articulo.stock}}</p>
+        <button mat-raised-button color="accent" (click)="agreagrAlCarrito(articulo.id,articulo.precio,articulo.stock,articulo.descripcion)">Agregar al carrito</button>
+        <button mat-raised-button style="background-color:#93a309;color:white" (click)="editarArticulo(articulo.id)">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<form>
+  <!--<input type="text" id="Codigo" name="Codigo" #Codigo placeholder="Codigo" />-->
+  <mat-form-field class="example-form-field" style="width:fit-content">
+    <mat-label>CODIGO DEL PRODUCTO</mat-label>
+    <input matInput type="text" id="Codigo" name="Codigo" #Codigo placeholder="Codigo">
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-form-field" style="width:fit-content">
+    <mat-label>DESCRIPCION</mat-label>
+    <input matInput type="text" class="form-control" id="Descripcion" #Descripcion name="Descripcion" placeholder="Descripcion">
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-form-field" style="width:fit-content">
+    <mat-label>PRECIO</mat-label>
+    <input matInput type="number" class="form-control" id="Precio" #Precio name="Precio" placeholder="Precio">
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-form-field" style="width:fit-content">
+    <mat-label>STOCK</mat-label>
+    <input matInput type="number" class="form-control" id="Stock" #Stock name="Stock" placeholder="Stock">
+  </mat-form-field>
+  <br />
+
+
+  <mat-form-field>
+    <mat-label>SUCURSAL</mat-label>
+    <mat-select #DDSucursal (selectionChange)="changeClient($event.value)">
+      <mat-option [value]="tienda.id" *ngFor="let tienda of TiendasDisponibles">{{tienda.sucursal}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <label for="ImagenInput" *ngIf="imagen==undefined">Es obligatorio seleccionar imagen</label><br/>
+  <input id="ImagenInput" name="ImagenInput" type='file' (change)="FileCambio($event)" accept="image/png">
+  <br />
+  <br />
+  <button mat-raised-button style="background-color:green;color:white" (click)="Guardar(Codigo.value,Descripcion.value, Precio.value, Stock.value)"
+            *ngIf="imagen!=undefined">Guardar</button>
+
+</form>
+
+
+
+
+

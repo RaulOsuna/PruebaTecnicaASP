@@ -1,0 +1,59 @@
+<div>
+  <table mat-table [dataSource]="carritoArticulos">
+    <ng-container matColumnDef="IdArticulo">
+      <th mat-header-cell *matHeaderCellDef> IdArticulo </th>
+      <td mat-cell *matCellDef="let element"> {{element.IdArticulo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Descripcion">
+      <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+      <td mat-cell *matCellDef="let element"> {{element.Descripcion}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Cantidad">
+      <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+      <td mat-cell *matCellDef="let element"> {{element.Cantidad }} </td>
+    </ng-container>
+    <ng-container matColumnDef="Precio">
+      <th mat-header-cell *matHeaderCellDef> Precio </th>
+      <td mat-cell *matCellDef="let element"> {{element.Precio}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Total">
+      <th mat-header-cell *matHeaderCellDef> Total </th>
+      <td mat-cell *matCellDef="let element"> {{element.Precio*element.Cantidad}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Accion">
+      <th mat-header-cell *matHeaderCellDef> Accion </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="warn" (click)="EliminarElemento(element.IdArticulo)">
+          Eliminar
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<div class="card-container">
+  <mat-card>
+    <mat-card-actions>
+      <h2>Total:{{totalCarrito}}</h2>
+    </mat-card-actions>
+    <section>
+      <div class="example-button-row" style="text-align:right">
+        
+        <button mat-button color="accent" (click)="SimularCompra(userIdSesion)">Simular Compra</button>
+      </div>
+    </section>
+  </mat-card>
+  <br>
+</div>
+
+
+
+
+
+  
+

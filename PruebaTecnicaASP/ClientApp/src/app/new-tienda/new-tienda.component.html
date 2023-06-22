@@ -1,0 +1,16 @@
+<form>
+  <!--<input type="text" id="Codigo" name="Codigo" #Codigo placeholder="Codigo" />-->
+  <mat-form-field class="example-form-field" style="width:fit-content">
+    <mat-label>SUCURSAL</mat-label>
+    <input matInput type="text" id="Sucursal" name="Sucursal" #Sucursal placeholder="Sucursal">
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-form-field" style="width:fit-content">
+    <mat-label>DIRECCION</mat-label>
+    <input matInput type="text" class="form-control" id="Direccion" #Direccion name="Direccion" placeholder="Direccion">
+  </mat-form-field>
+  <br />
+
+  <button mat-raised-button style="background-color:green;color:white" (click)="Guardar(Sucursal.value,Direccion.value)">Guardar</button>
+
+</form>
